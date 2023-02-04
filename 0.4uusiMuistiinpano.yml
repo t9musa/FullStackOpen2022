@@ -1,0 +1,27 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+My sequence:
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note {note: "your message"}
+    activate server
+    server-->>browser: no response
+    deactivate server    
+
+Note right of browser: Redirects browser to load the page once again
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: the css file
+    deactivate server
+    
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
+    server-->>browser: the JavaScript file
+    deactivate server

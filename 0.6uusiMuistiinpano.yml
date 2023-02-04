@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+My sequence:
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/spa {content: "Single Page App ei tee turhia sivunlatauksia", date: "2019-01-03T15:11:22.123Z"}
+    activate server
+    server-->>browser: 201 created
+    deactivate server
+
+    Array gets added to the notes array, no additional loading required
+
+
