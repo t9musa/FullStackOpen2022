@@ -1,3 +1,3 @@
 # fullstack_phone_book_app
 
-Web-app address: https://fullstack-phonebook-app.onrender.com/
+Web-app address: https://phonebook-app-fullstack-course.onrender.com
