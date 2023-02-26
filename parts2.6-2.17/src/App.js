@@ -28,8 +28,13 @@ const App = () => {
 
     if(!persons.find(x => x.name === personObject.name)) {
       personService.create(personObject)
-      .then(response => { setPersons(persons.concat(response.data))})  
-        .then(setStatusMessage(`${personObject.name} added!`))
+      .then(response => { setPersons(persons.concat(response.data))})
+      .catch(error => {
+        // pääset käsiksi palvelimen palauttamaan virheilmoitusolioon näin
+        console.log(error.response.data)
+        setStatusMessage(error.response.data.error)
+      })  
+      .then(setStatusMessage(`${personObject.name} added!`))
         setTimeout(() => {          
           setStatusMessage(null)        
         }, 5000)
